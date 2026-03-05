@@ -135,10 +135,17 @@ h4 {
     font-size: 1.3rem;
     color: #fff;
     letter-spacing: 0.5px;
+    white-space: nowrap;
 }
 
 .logo-dot {
     color: var(--accent-blue);
+}
+
+.mobile-logo {
+    display: none;
+    font-size: 1.1rem;
+    letter-spacing: 0;
 }
 
 .nav-links {
@@ -1163,6 +1170,14 @@ h4 {
         display: block;
     }
 
+    .desktop-logo {
+        display: none;
+    }
+
+    .mobile-logo {
+        display: inline;
+    }
+
     .nav-links {
         position: fixed;
         top: 64px;
@@ -1202,6 +1217,11 @@ h4 {
 
     .hero-photo {
         width: 100%;
+        justify-content: center;
+    }
+
+    .scroll-indicator {
+        display: none;
     }
 
     .photo-contour {
