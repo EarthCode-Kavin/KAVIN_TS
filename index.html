@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=6">
 </head>
 
 <body>
@@ -41,22 +41,80 @@
 
     <!-- ═══════════════ HERO ═══════════════ -->
     <section id="hero" class="hero">
-        <div class="hero-bg-grid"></div>
-        <div class="container hero-content">
-            <p class="hero-greeting reveal">Hello, I'm</p>
-            <h1 class="hero-name reveal reveal-delay-1">Kavin T.S</h1>
-            <h2 class="hero-title reveal reveal-delay-2">Geology Postgraduate <span class="separator">|</span>
-                Computational Geoscience Researcher</h2>
-            <p class="hero-bio reveal reveal-delay-3">
-                Geology postgraduate specializing in geomorphology, basin analysis, and landscape evolution.
-                Integrating field geology with remote sensing, GIS, and Python-based computational modelling
-                to investigate Earth surface processes and source-to-sink systems.
-            </p>
-            <div class="hero-cta reveal reveal-delay-4">
-                <a href="#research" class="btn btn-primary"><i class="fas fa-flask"></i> View Research</a>
-                <a href="#" class="btn btn-outline"><i class="fas fa-file-pdf"></i> Download CV</a>
-                <a href="#" class="btn btn-outline"><i class="fas fa-download"></i> Download Resume</a>
-                <a href="#contact" class="btn btn-ghost"><i class="fas fa-envelope"></i> Contact</a>
+        <div class="hero-bg-grid">
+            <!-- Custom Topographic Contour SVG -->
+            <svg class="contour-bg-svg modern-contour" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice"
+                xmlns="http://www.w3.org/2000/svg">
+                <!-- Sleek glowing gradient -->
+                <defs>
+                    <linearGradient id="neon-contour" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="rgba(58, 111, 148, 0.3)" />
+                        <stop offset="40%" stop-color="rgba(74, 124, 89, 0.15)" />
+                        <stop offset="100%" stop-color="rgba(38, 59, 74, 0.05)" />
+                    </linearGradient>
+                </defs>
+
+                <g fill="none" stroke="url(#neon-contour)" stroke-width="1.2" stroke-linecap="round"
+                    stroke-linejoin="round" opacity="0.7">
+                    <!-- Smooth, sweeping parallel contour lines (Abstract Digital Topology) -->
+                    <!-- Curve Group 1 (Top Left sweeping to Bottom Right) -->
+                    <path d="M-100,-100 Q300,300 1100,50" />
+                    <path d="M-100,-70 Q300,330 1100,80" />
+                    <path d="M-100,-40 Q300,360 1100,110" />
+                    <path d="M-100,-10 Q300,390 1100,140" />
+                    <path d="M-100,20 Q300,420 1100,170" />
+                    <path d="M-100,50 Q300,450 1100,200" />
+                    <path d="M-100,80 Q300,480 1100,230" />
+                    <path d="M-100,110 Q300,510 1100,260" />
+
+                    <!-- Curve Group 2 (Bottom Left sweeping up) -->
+                    <path d="M-100,250 Q400,150 1100,450" />
+                    <path d="M-100,280 Q400,180 1100,480" />
+                    <path d="M-100,310 Q400,210 1100,510" />
+                    <path d="M-100,340 Q400,240 1100,540" />
+                    <path d="M-100,370 Q400,270 1100,570" />
+                    <path d="M-100,400 Q400,300 1100,600" />
+                    <path d="M-100,430 Q400,330 1100,630" />
+                    <path d="M-100,460 Q400,360 1100,660" />
+
+                    <!-- Curve Group 3 (Right edge looping contour) -->
+                    <path d="M700,-50 C900,200 600,400 900,650" />
+                    <path d="M730,-50 C930,200 630,400 930,650" />
+                    <path d="M760,-50 C960,200 660,400 960,650" />
+                    <path d="M790,-50 C990,200 690,400 990,650" />
+                    <path d="M820,-50 C1020,200 720,400 1020,650" />
+                    <path d="M850,-50 C1050,200 750,400 1050,650" />
+                </g>
+            </svg>
+        </div>
+        <div class="container hero-content hero-split">
+            <div class="hero-text">
+                <p class="hero-greeting reveal">Hello, I'm</p>
+                <h1 class="hero-name reveal reveal-delay-1">Kavin T.S</h1>
+                <h2 class="hero-title reveal reveal-delay-2">Geology Postgraduate <span class="separator">|</span>
+                    Computational Geoscience Researcher</h2>
+                <p class="hero-bio reveal reveal-delay-3">
+                    Geology postgraduate specializing in geomorphology, basin analysis, and landscape evolution.
+                    Integrating field geology with remote sensing, GIS, and Python-based computational modelling
+                    to investigate Earth surface processes and source-to-sink systems.
+                </p>
+                <div class="hero-cta reveal reveal-delay-4">
+                    <a href="#research" class="btn btn-primary"><i class="fas fa-flask"></i> View Research</a>
+                    <a href="https://drive.google.com/file/d/1QeUyWlSVdNeMeGnSljXyCUN3sWO5cyZz/view"
+                        class="btn btn-outline" target="_blank"><i class="fas fa-file-pdf"></i> View CV</a>
+                    <a href="https://drive.google.com/file/d/1eDrjdQ4OCLkUKcmGS8qGzDonQkTDYOx6/view"
+                        class="btn btn-outline" target="_blank"><i class="fas fa-eye"></i> View Resume</a>
+                    <a href="hire-me.html" class="btn btn-hire"><i class="fas fa-briefcase"></i> Hire Me</a>
+                    <a href="#contact" class="btn btn-ghost"><i class="fas fa-envelope"></i> Contact</a>
+                </div>
+            </div>
+            <div class="hero-photo reveal reveal-delay-2">
+                <div class="photo-contour">
+                    <div class="contour-ring contour-ring-1"></div>
+                    <div class="contour-ring contour-ring-2"></div>
+                    <div class="contour-ring contour-ring-3"></div>
+                    <img src="profile.jpg" alt="Kavin T.S" class="profile-img" />
+                </div>
             </div>
         </div>
         <div class="scroll-indicator">
@@ -96,11 +154,13 @@
             <h3 class="subsection-heading reveal">Research Interests</h3>
             <div class="tags reveal">
                 <span class="tag">Sedimentology</span>
+                <span class="tag">Geomorphology</span>
+                <span class="tag">Remote Sensing</span>
+                <span class="tag">Geophysics</span>
                 <span class="tag">Source-to-Sink Systems</span>
                 <span class="tag">Basin Analysis</span>
                 <span class="tag">Carbon Sequestration</span>
                 <span class="tag">Landscape Evolution Modelling</span>
-                <span class="tag">Tectono-Geomorphology</span>
             </div>
         </div>
     </section>
@@ -243,7 +303,7 @@
             <h2 class="section-heading center reveal">Technical Stack</h2>
 
             <div class="tech-image-wrapper reveal">
-                <img src="tech_stack_logos.png"
+                <img src="assets/tech_stack_logos.png"
                     alt="3D visualization of technical tools including Python, QGIS, MATLAB, Google Earth Engine, and more"
                     class="tech-image" loading="lazy">
                 <div class="tech-image-overlay"></div>

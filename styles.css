@@ -227,28 +227,201 @@ h4 {
 .hero-bg-grid {
     position: absolute;
     inset: 0;
-    background-image:
-        radial-gradient(circle at 65% 25%, rgba(58, 111, 148, 0.08) 0%, transparent 55%),
-        radial-gradient(circle at 25% 75%, rgba(74, 124, 89, 0.05) 0%, transparent 50%);
+    overflow: hidden;
     pointer-events: none;
 }
 
-.hero-bg-grid::before {
-    content: '';
+.contour-bg-svg {
     position: absolute;
-    inset: 0;
-    background-image:
-        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-    background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 20%, transparent 70%);
-    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 20%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    min-width: 1200px;
+    /* Ensure lines stretch across */
+    transform: translate(-50%, -50%);
+    opacity: 0.6;
+    /* Softly blend into the dark bg */
+}
+
+/* Subtle drifting animation for the modern contour lines */
+.modern-contour path {
+    animation: drift 25s linear infinite alternate;
+}
+
+.modern-contour path:nth-child(even) {
+    animation-duration: 35s;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes drift {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+
+    100% {
+        transform: translateY(15px) scale(1.02);
+    }
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 780px;
+}
+
+/* ── Hero Split Layout ── */
+.hero-split {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    /* Reduced gap so left side has more room */
+    max-width: 1150px;
+    /* Slightly wider container */
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 0;
+}
+
+/* ── Profile Photo — Contour Style ── */
+.hero-photo {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    /* Push image right */
+    width: 320px;
+    /* Give it a fixed boundary so it doesn't take too much space */
+}
+
+.photo-contour {
+    position: relative;
+    width: 280px;
+    height: 340px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.contour-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1.5px solid transparent;
+    pointer-events: none;
+    display: none;
+}
+
+.contour-ring-1 {
+    width: 110%;
+    height: 110%;
+    border-color: rgba(58, 111, 148, 0.35);
+    animation: contourPulse1 6s ease-in-out infinite, contourRotate 25s linear infinite;
+    border-style: dashed;
+}
+
+.contour-ring-2 {
+    width: 125%;
+    height: 125%;
+    border-color: rgba(74, 124, 89, 0.22);
+    animation: contourPulse2 8s ease-in-out infinite, contourRotate 35s linear infinite reverse;
+    border-style: dotted;
+    border-width: 2px;
+}
+
+.contour-ring-3 {
+    width: 140%;
+    height: 140%;
+    border-image: linear-gradient(135deg, rgba(58, 111, 148, 0.18), rgba(74, 124, 89, 0.12), transparent 60%) 1;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 0;
+    border-radius: 50%;
+    animation: contourPulse3 10s ease-in-out infinite;
+}
+
+.profile-img {
+    width: 260px;
+    height: auto;
+    max-height: 340px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 12px;
+    position: relative;
+    z-index: 2;
+    /* Fade bottom edge for cutout / bg-removed look */
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    filter: contrast(1.05) brightness(0.95) grayscale(0.15);
+}
+
+@keyframes contourPulse1 {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1.06);
+        opacity: 1;
+    }
+}
+
+@keyframes contourPulse2 {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.04);
+        opacity: 0.85;
+    }
+}
+
+@keyframes contourPulse3 {
+
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.03) rotate(5deg);
+        opacity: 0.6;
+    }
+}
+
+@keyframes contourRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ── Hire Me button ── */
+.btn-hire {
+    background: linear-gradient(135deg, var(--accent-green), var(--accent-green-muted));
+    color: #fff;
+    border-color: var(--accent-green);
+    box-shadow: var(--glow-green);
+}
+
+.btn-hire:hover {
+    background: linear-gradient(135deg, #5a9c6b, var(--accent-green));
+    border-color: #5a9c6b;
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(74, 124, 89, 0.35);
+    color: #fff;
 }
 
 .hero-greeting {
@@ -286,24 +459,30 @@ h4 {
 .hero-bio {
     font-size: 1.05rem;
     color: var(--text-secondary);
-    max-width: 620px;
-    margin-bottom: 2.5rem;
+    max-width: 680px;
+    /* Increased to give CTA more room below */
+    margin-bottom: 2.2rem;
     line-height: 1.8;
 }
 
 .hero-cta {
     display: flex;
-    gap: 0.75rem;
+    gap: 0.4rem;
+    /* Tighter gap */
     flex-wrap: wrap;
+    max-width: 680px;
 }
 
 /* Buttons */
 .btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.7rem 1.5rem;
-    font-size: 0.88rem;
+    gap: 0.35rem;
+    /* Tighter icon gap */
+    padding: 0.6rem 1rem;
+    /* Smaller padding */
+    font-size: 0.78rem;
+    /* Smaller font */
     font-weight: 600;
     font-family: var(--font-sans);
     border-radius: var(--radius-sm);
@@ -1013,6 +1192,26 @@ h4 {
     .hero-cta .btn {
         width: 100%;
         justify-content: center;
+    }
+
+    .hero-split {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-photo {
+        width: 100%;
+    }
+
+    .photo-contour {
+        width: 220px;
+        height: 220px;
+    }
+
+    .profile-img {
+        width: 190px;
+        height: 190px;
     }
 
     .education-grid,

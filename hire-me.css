@@ -1,0 +1,360 @@
+/* ══════════════════════════════════════════════════════
+   HIRE ME PAGE — STYLES
+   ══════════════════════════════════════════════════════ */
+
+/* ── Hero ── */
+.hire-hero {
+    position: relative;
+    padding: 10rem 0 5rem;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hire-hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 60% 50% at 50% 30%, rgba(74, 124, 89, 0.1) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 70% 60%, rgba(58, 111, 148, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.hire-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent-green);
+    padding: 0.4rem 1rem;
+    border: 1px solid rgba(74, 124, 89, 0.25);
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+    background: rgba(74, 124, 89, 0.06);
+}
+
+.hire-heading {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+}
+
+.text-accent {
+    background: linear-gradient(135deg, var(--accent-blue-light), var(--accent-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hire-intro {
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--text-secondary);
+}
+
+.hire-intro strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* ── Services Grid ── */
+.hire-services {
+    padding-top: 2rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.service-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.2rem 2rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.service-card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+.service-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: rgba(58, 111, 148, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: var(--accent-blue-light);
+    margin-bottom: 1.2rem;
+    transition: var(--transition);
+}
+
+.service-card:hover .service-icon {
+    background: rgba(58, 111, 148, 0.2);
+    transform: scale(1.08);
+}
+
+.service-card h3 {
+    font-size: 1.15rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.service-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.service-card li {
+    position: relative;
+    padding-left: 1.4rem;
+    margin-bottom: 0.6rem;
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.service-card li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    border: 1.5px solid var(--accent-blue);
+    background: transparent;
+}
+
+/* ── Consultancy Banner ── */
+.consultancy-banner {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.consultancy-card {
+    position: relative;
+    background: linear-gradient(135deg, rgba(58, 111, 148, 0.08), rgba(74, 124, 89, 0.08));
+    border: 1px solid rgba(74, 124, 89, 0.25);
+    border-radius: var(--radius);
+    padding: 2.5rem 3rem;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.consultancy-card:hover {
+    border-color: rgba(74, 124, 89, 0.45);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.consultancy-glow {
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(74, 124, 89, 0.12), transparent 70%);
+    pointer-events: none;
+}
+
+.consultancy-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.consultancy-icon {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(58, 111, 148, 0.2), rgba(74, 124, 89, 0.2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: var(--accent-green);
+}
+
+.consultancy-text {
+    flex: 1;
+}
+
+.consultancy-text h2 {
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.consultancy-text p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.consultancy-text p strong {
+    color: var(--accent-green);
+    font-weight: 600;
+}
+
+.btn-consultancy {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.35s ease;
+    white-space: nowrap;
+}
+
+.btn-consultancy:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(74, 124, 89, 0.35);
+}
+
+.btn-consultancy i {
+    transition: transform 0.3s ease;
+}
+
+.btn-consultancy:hover i {
+    transform: translateX(4px);
+}
+
+/* ── CTA ── */
+.hire-cta {
+    padding-bottom: 4rem;
+}
+
+.cta-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 3.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-blue), var(--accent-green), transparent);
+}
+
+.cta-card h2 {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+}
+
+.cta-card p {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.cta-card p strong {
+    color: var(--text-primary);
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-lg {
+    padding: 0.85rem 2rem;
+    font-size: 0.95rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .hire-hero {
+        padding: 8rem 0 3rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-card {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .consultancy-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .consultancy-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .consultancy-text h2 {
+        font-size: 1.2rem;
+    }
+
+    .btn-consultancy {
+        width: 100%;
+        justify-content: center;
+    }
+}
