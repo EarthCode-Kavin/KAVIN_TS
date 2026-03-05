@@ -1189,11 +1189,17 @@ h4 {
         padding: 1rem 0;
         border-bottom: 1px solid var(--border);
         transform: translateY(-110%);
-        transition: transform 0.35s ease;
+        transition: transform 0.35s ease, opacity 0.35s ease, visibility 0.35s ease;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
     }
 
     .nav-links.open {
         transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
     }
 
     .nav-links a {
